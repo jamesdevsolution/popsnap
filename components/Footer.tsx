@@ -32,7 +32,7 @@ const Footer = () => {
                 </p>
 
                 {/* CTA button */}
-                <div className="flex flex-col sm:flex-row items-start gap-4">
+                <div className="flex flex-row items-start gap-4">
                     <a
                         href="/photobooth"
                         className="inline-flex items-center gap-3 bg-[#111] text-white rounded-full px-8 py-4 text-base font-black hover:bg-[#333] transition-colors no-underline group"

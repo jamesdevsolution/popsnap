@@ -484,7 +484,7 @@ const Photobooth = () => {
                             <div className="flex items-center gap-1.5">
                                 {Array.from({ length: total }).map((_, i) => (<StepPip key={i} active={i === photos.length} done={i < photos.length} />))}
                             </div>
-                            <button onClick={handleCancel} className="cursor-pointer flex items-center gap-1.5 bg-white border border-[#ddd] text-[#555] rounded-full px-4 py-2 text-sm font-bold hover:border-[#bbb] hover:text-[#111] transition-colors">← Cancel</button>
+                            <button onClick={handleCancel} className="cursor-pointer flex items-center gap-1.5 bg-white border border-[#ddd] text-[#555] rounded-full px-4 py-2 text-sm font-bold hover:border-[#bbb] hover:text-[#111] transition-colors">Cancel</button>
                         </div>
                     </div>
 

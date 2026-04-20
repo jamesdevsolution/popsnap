@@ -5,7 +5,7 @@ import { useState } from "react";
 
 const Landing = () => {
   return (
-    <div className="font-[Figtree]">
+    <div className="font-[Figtree] py-15">
 
 
       {/* MOCKUP SECTION */}
