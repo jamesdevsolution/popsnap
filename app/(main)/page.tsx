@@ -11,15 +11,15 @@ const Landing = () => {
       {/* MOCKUP SECTION */}
       <div className="min-h-auto lg:min-h-screen bg-[#eeecea] flex flex-col">
 
-        {/* HERO — stacks vertically on mobile, side-by-side on lg+ */}
+        {/* HERO, stacks vertically on mobile, side-by-side on lg+ */}
         <main className="flex flex-col lg:flex-row flex-1 items-center gap-20 lg:gap-10 px-5 sm:px-10 py-6 lg:py-8 max-w-[1600px] mx-auto w-full">
 
-          {/* LEFT — MacBook Mockup */}
+          {/* LEFT, MacBook Mockup */}
           <div className=" flex  items-center w-full">
             <MacBookMockup />
           </div>
 
-          {/* RIGHT — Copy */}
+          {/* RIGHT, Copy */}
           <div className="w-full lg:w-[360px] flex flex-col items-center text-center gap-4 sm:gap-5">
             <div className="text-3xl sm:text-4xl lg:text-6xl font-black leading-[1.05] tracking-tight text-[#111] extra-bold ">
               Your online photobooth everywhere
@@ -56,116 +56,113 @@ const Landing = () => {
             box-shadow: 0 16px 40px rgba(0,0,0,0.08);
           }
 
-          /* === ICON ANIMATIONS === */
-
-          /* 1. Instant Strips — slides down like printing */
           @keyframes stripPrint {
             0%, 100% { transform: translateY(0); }
             50%       { transform: translateY(6px); }
           }
           .anim-strip { animation: stripPrint 2s ease-in-out infinite; }
 
-          /* 2. Fun Filters — pulses the accent circles */
           @keyframes filterPulse {
-            0%, 100% { opacity: 0.4; r: 6; }
-            50%       { opacity: 1;   r: 8; }
+            0%, 100% { opacity: 0.4; }
+            50%       { opacity: 1; }
           }
-          .anim-filter-dot { animation: filterPulse 1.4s ease-in-out infinite; }
+          .anim-filter-dot  { animation: filterPulse 1.4s ease-in-out infinite; }
           .anim-filter-dot2 { animation: filterPulse 1.4s ease-in-out infinite 0.3s; }
           .anim-filter-dot3 { animation: filterPulse 1.4s ease-in-out infinite 0.6s; }
 
-          /* 3. Countdown — clock hand rotates */
           @keyframes clockSpin {
             from { transform: rotate(0deg);   transform-origin: 45px 47px; }
             to   { transform: rotate(360deg); transform-origin: 45px 47px; }
           }
-          .anim-clock-hand {
-            transform-origin: 45px 47px;
-            animation: clockSpin 3s linear infinite;
-          }
+          .anim-clock-hand { transform-origin: 45px 47px; animation: clockSpin 3s linear infinite; }
 
-          /* 4. Custom Overlays — star spins */
           @keyframes starSpin {
             from { transform: rotate(0deg);   transform-origin: 60px 24px; }
             to   { transform: rotate(360deg); transform-origin: 60px 24px; }
           }
-          .anim-star {
-            transform-origin: 60px 24px;
-            animation: starSpin 4s linear infinite;
-          }
+          .anim-star { transform-origin: 60px 24px; animation: starSpin 4s linear infinite; }
 
-          /* 5. Instant Share — dots pulse outward */
-          @keyframes sharePulse {
-            0%, 100% { opacity: 0.6; transform: scale(1); }
-            50%       { opacity: 1;   transform: scale(1.4); }
+          @keyframes bgShift {
+            0%, 100% { fill: #E43B37; }
+            33%       { fill: #3B82F6; }
+            66%       { fill: #10B981; }
           }
-          .anim-share1 {
-            transform-origin: 70px 27px;
-            animation: sharePulse 1.5s ease-in-out infinite;
-          }
-          .anim-share2 {
-            transform-origin: 72px 55px;
-            animation: sharePulse 1.5s ease-in-out infinite 0.4s;
-          }
+          .anim-bg { animation: bgShift 3s ease-in-out infinite; }
 
-          /* 6. Group Shots — gentle bob */
-          @keyframes groupBob {
-            0%, 100% { transform: translateY(0); }
-            50%       { transform: translateY(-5px); }
+          @keyframes captionSlide {
+            0%, 100% { transform: translateY(0); opacity: 1; }
+            45%       { transform: translateY(-4px); opacity: 0; }
+            55%       { transform: translateY(4px); opacity: 0; }
           }
-          .anim-group { animation: groupBob 2s ease-in-out infinite; }
+          .anim-caption { animation: captionSlide 3s ease-in-out infinite; }
 
-          /* 7. GIF — play arrow bounces right */
-          @keyframes playBounce {
-            0%, 100% { transform: translateX(0); }
-            50%       { transform: translateX(4px); }
+          @keyframes mirrorFlip {
+            0%, 45%, 100% { transform: scaleX(1); }
+            50%, 95%       { transform: scaleX(-1); }
           }
-          .anim-play { animation: playBounce 1s ease-in-out infinite; }
+          .anim-mirror { animation: mirrorFlip 4s ease-in-out infinite; transform-origin: 45px 45px; }
 
-          /* 8. Privacy — shield pulses */
+          @keyframes stickerBounce {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            50%       { transform: translate(-50%, -50%) scale(1.25) rotate(12deg); }
+          }
+          .anim-sticker { animation: stickerBounce 1.8s ease-in-out infinite; }
+
           @keyframes shieldPulse {
             0%, 100% { transform: scale(1); opacity: 1; }
             50%       { transform: scale(1.06); opacity: 0.85; }
           }
           .anim-shield { animation: shieldPulse 2s ease-in-out infinite; transform-origin: 45px 46px; }
 
-          /* 9. Event Branding — badge bounces */
-          @keyframes badgeBounce {
+          @keyframes downloadBounce {
             0%, 100% { transform: translateY(0); }
-            50%       { transform: translateY(-5px); }
+            50%       { transform: translateY(5px); }
           }
-          .anim-badge { animation: badgeBounce 1.8s ease-in-out infinite; }
+          .anim-dl { animation: downloadBounce 1.5s ease-in-out infinite; }
 
-          /* 10. Print — paper slides out */
-          @keyframes paperSlide {
-            0%   { transform: translateY(0); }
-            50%  { transform: translateY(6px); }
-            100% { transform: translateY(0); }
+          @keyframes layoutCycle {
+            0%, 30%   { opacity: 1; }
+            33%, 63%  { opacity: 0; }
+            66%, 96%  { opacity: 1; }
           }
-          .anim-paper { animation: paperSlide 2s ease-in-out infinite; }
+          .anim-layout1 { animation: layoutCycle 4s ease-in-out infinite 0s; }
+          .anim-layout2 { animation: layoutCycle 4s ease-in-out infinite 1.3s; }
+          .anim-layout3 { animation: layoutCycle 4s ease-in-out infinite 2.6s; }
         `}</style>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 max-w-[1600px] mx-auto">
           {[
             {
-              title: "Instant Strips",
-              desc: "Classic 4-frame photo strips printed in seconds.",
+              title: "Multiple Layouts",
+              desc: "1×1, 1×2, 1×3, and 2×2 grids, pick the strip that fits your vibe.",
               icon: (
                 <svg width="90" height="90" viewBox="0 0 90 90" fill="none">
-                  <g className="anim-strip">
-                    <rect x="27" y="10" width="36" height="70" rx="4" fill="#e8e8e8" />
-                    <rect x="31" y="14" width="28" height="18" rx="2" fill="#d0d0d0" />
-                    <rect x="31" y="36" width="28" height="18" rx="2" fill="#d0d0d0" />
-                    <rect x="31" y="58" width="28" height="18" rx="2" fill="#d0d0d0" />
-                    <rect x="31" y="58" width="28" height="18" rx="2" fill="#E43B37" opacity="0.18" />
-                    <circle cx="45" cy="67" r="5" fill="#E43B37" opacity="0.5" />
+                  <g className="anim-layout1">
+                    <rect x="33" y="12" width="24" height="66" rx="4" fill="#e8e8e8" />
+                    <rect x="36" y="16" width="18" height="18" rx="2" fill="#d0d0d0" />
+                    <rect x="36" y="38" width="18" height="18" rx="2" fill="#E43B37" opacity="0.4" />
+                    <rect x="36" y="60" width="18" height="14" rx="2" fill="#d0d0d0" />
+                  </g>
+                  <g className="anim-layout2" style={{ opacity: 0 }}>
+                    <rect x="15" y="20" width="26" height="50" rx="4" fill="#e8e8e8" />
+                    <rect x="18" y="24" width="20" height="20" rx="2" fill="#d0d0d0" />
+                    <rect x="18" y="46" width="20" height="20" rx="2" fill="#E43B37" opacity="0.4" />
+                    <rect x="49" y="20" width="26" height="50" rx="4" fill="#e8e8e8" />
+                    <rect x="52" y="24" width="20" height="20" rx="2" fill="#d0d0d0" />
+                    <rect x="52" y="46" width="20" height="20" rx="2" fill="#d0d0d0" />
+                  </g>
+                  <g className="anim-layout3" style={{ opacity: 0 }}>
+                    <rect x="14" y="22" width="28" height="46" rx="4" fill="#e8e8e8" />
+                    <rect x="17" y="26" width="22" height="38" rx="2" fill="#E43B37" opacity="0.3" />
+                    <rect x="48" y="22" width="28" height="46" rx="4" fill="#e8e8e8" />
+                    <rect x="51" y="26" width="22" height="38" rx="2" fill="#d0d0d0" />
                   </g>
                 </svg>
               ),
             },
             {
               title: "Fun Filters",
-              desc: "Vintage, glam, neon? swap styles with one tap.",
+              desc: "B&W, Warm, Cool, Vintage, and Fade applied in one tap.",
               icon: (
                 <svg width="90" height="90" viewBox="0 0 90 90" fill="none">
                   <rect x="18" y="18" width="54" height="54" rx="10" fill="#e8e8e8" />
@@ -183,7 +180,7 @@ const Landing = () => {
             },
             {
               title: "Countdown Timer",
-              desc: "3… 2… 1… smile! Plenty of time to pose.",
+              desc: "3, 5, or 10 seconds, plenty of time to strike a pose.",
               icon: (
                 <svg width="90" height="90" viewBox="0 0 90 90" fill="none">
                   <circle cx="45" cy="47" r="28" fill="#e8e8e8" />
@@ -200,71 +197,58 @@ const Landing = () => {
               ),
             },
             {
-              title: "Custom Overlays",
-              desc: "Stickers, frames, and text on every shot.",
+              title: "Stickers & Captions",
+              desc: "Drag emoji stickers anywhere on your strip, add a caption too.",
               icon: (
                 <svg width="90" height="90" viewBox="0 0 90 90" fill="none">
-                  <rect x="15" y="20" width="50" height="50" rx="6" fill="#e8e8e8" />
-                  <rect x="21" y="26" width="38" height="38" rx="3" fill="#d8d8d8" />
-                  <polygon className="anim-star" points="60,15 62.5,22 70,22 64,27 66.5,34 60,29.5 53.5,34 56,27 50,22 57.5,22" fill="#E43B37" opacity="0.6" />
-                  <text x="25" y="55" fontSize="14" fill="#E43B37" opacity="0.4">♥</text>
-                  <text x="42" y="42" fontSize="10" fill="#E43B37" opacity="0.3">★</text>
+                  <rect x="22" y="15" width="46" height="60" rx="5" fill="#e8e8e8" />
+                  <rect x="26" y="19" width="38" height="24" rx="2" fill="#d0d0d0" />
+                  <rect x="26" y="47" width="38" height="12" rx="2" fill="#d0d0d0" />
+                  <rect x="26" y="62" width="28" height="5" rx="2" fill="#ddd" />
+                  <text
+                    className="anim-sticker"
+                    x="55" y="34"
+                    fontSize="18"
+                    style={{ position: "absolute", transformOrigin: "55px 30px" }}
+                  >🌟</text>
                 </svg>
               ),
             },
             {
-              title: "Instant Share",
-              desc: "Send to your phone via QR in one tap.",
+              title: "Custom Background",
+              desc: "12 color presets plus a free-pick color wheel for the strip border.",
               icon: (
                 <svg width="90" height="90" viewBox="0 0 90 90" fill="none">
-                  <rect x="30" y="20" width="30" height="50" rx="6" fill="#e8e8e8" />
-                  <rect x="34" y="25" width="22" height="32" rx="2" fill="#d0d0d0" />
-                  <circle cx="45" cy="63" r="3" fill="#bbb" />
-                  <path d="M55 38 Q70 38 70 28" stroke="#E43B37" strokeWidth="2" fill="none" strokeLinecap="round" opacity="0.7" />
-                  <path d="M55 45 Q72 45 72 55" stroke="#E43B37" strokeWidth="2" fill="none" strokeLinecap="round" opacity="0.4" />
-                  <circle className="anim-share1" cx="70" cy="27" r="4" fill="#E43B37" opacity="0.6" />
-                  <circle className="anim-share2" cx="72" cy="55" r="4" fill="#E43B37" opacity="0.3" />
+                  <rect x="15" y="15" width="60" height="60" rx="8" className="anim-bg" opacity="0.25" />
+                  <rect x="22" y="22" width="46" height="46" rx="5" fill="#e8e8e8" />
+                  <rect x="26" y="26" width="38" height="16" rx="2" fill="#d0d0d0" />
+                  <rect x="26" y="46" width="38" height="16" rx="2" fill="#d0d0d0" />
+                  <circle cx="32" cy="68" r="4" fill="#E43B37" opacity="0.7" />
+                  <circle cx="42" cy="68" r="4" fill="#3B82F6" opacity="0.7" />
+                  <circle cx="52" cy="68" r="4" fill="#10B981" opacity="0.7" />
+                  <circle cx="62" cy="68" r="4" fill="#8B5CF6" opacity="0.7" />
                 </svg>
               ),
             },
             {
-              title: "Group Shots",
-              desc: "Wide-angle mode fits your whole squad.",
+              title: "Mirror Mode",
+              desc: "Flip between mirrored and normal view while in the booth.",
               icon: (
                 <svg width="90" height="90" viewBox="0 0 90 90" fill="none">
-                  <g className="anim-group">
-                    <circle cx="30" cy="36" r="9" fill="#d0d0d0" />
-                    <path d="M15 65 Q15 50 30 50 Q45 50 45 65" fill="#d0d0d0" />
-                    <circle cx="60" cy="36" r="9" fill="#d0d0d0" />
-                    <path d="M45 65 Q45 50 60 50 Q75 50 75 65" fill="#d0d0d0" />
-                    <circle cx="45" cy="30" r="10" fill="#bbb" />
-                    <path d="M28 65 Q28 48 45 48 Q62 48 62 65" fill="#bbb" />
-                    <rect x="37" y="72" width="16" height="12" rx="3" fill="#E43B37" opacity="0.5" />
-                    <circle cx="45" cy="78" r="3" fill="#E43B37" opacity="0.8" />
+                  <g className="anim-mirror">
+                    <rect x="18" y="22" width="54" height="46" rx="6" fill="#e8e8e8" />
+                    <line x1="45" y1="22" x2="45" y2="68" stroke="#E43B37" strokeWidth="2" strokeDasharray="4 3" opacity="0.6" />
+                    <circle cx="33" cy="40" r="7" fill="#d0d0d0" />
+                    <path d="M22 62 Q22 50 33 50 Q44 50 44 62" fill="#d0d0d0" />
+                    <circle cx="57" cy="40" r="7" fill="#ccc" />
+                    <path d="M46 62 Q46 50 57 50 Q68 50 68 62" fill="#ccc" />
                   </g>
                 </svg>
               ),
             },
             {
-              title: "Boomerang & GIF",
-              desc: "Looping animations that bring photos to life.",
-              icon: (
-                <svg width="90" height="90" viewBox="0 0 90 90" fill="none">
-                  <rect x="15" y="25" width="60" height="40" rx="6" fill="#e8e8e8" />
-                  <rect x="18" y="30" width="8" height="6" rx="1.5" fill="#ccc" />
-                  <rect x="18" y="42" width="8" height="6" rx="1.5" fill="#ccc" />
-                  <rect x="18" y="54" width="8" height="6" rx="1.5" fill="#ccc" />
-                  <rect x="64" y="30" width="8" height="6" rx="1.5" fill="#ccc" />
-                  <rect x="64" y="42" width="8" height="6" rx="1.5" fill="#ccc" />
-                  <rect x="64" y="54" width="8" height="6" rx="1.5" fill="#ccc" />
-                  <text x="26" y="51" fontSize="18" fontWeight="900" fontFamily="Figtree,sans-serif" fill="#E43B37" opacity="0.7">GIF</text>
-                  <polygon className="anim-play" points="72,40 82,45 72,50" fill="#E43B37" opacity="0.5" />
-                </svg>
-              ),
-            },
-            {
               title: "Privacy First",
-              desc: "Photos stay on your device. Zero cloud uploads.",
+              desc: "Photos stay on your device. Nothing is ever uploaded.",
               icon: (
                 <svg width="90" height="90" viewBox="0 0 90 90" fill="none">
                   <g className="anim-shield">
@@ -276,34 +260,49 @@ const Landing = () => {
               ),
             },
             {
-              title: "Event Branding",
-              desc: "Add your logo, date, and hashtag to every frame.",
+              title: "Instant Download",
+              desc: "Save your strip as a PNG with one click, ready to share.",
               icon: (
                 <svg width="90" height="90" viewBox="0 0 90 90" fill="none">
-                  <rect x="15" y="38" width="60" height="24" rx="4" fill="#e8e8e8" />
-                  <rect x="25" y="44" width="40" height="4" rx="2" fill="#ccc" />
-                  <rect x="31" y="52" width="28" height="3" rx="1.5" fill="#ddd" />
-                  <g className="anim-badge">
-                    <circle cx="45" cy="28" r="9" fill="#E43B37" opacity="0.5" />
-                    <text x="41" y="32" fontSize="10" fontWeight="900" fontFamily="Figtree,sans-serif" fill="white">PS</text>
+                  <rect x="22" y="12" width="36" height="52" rx="4" fill="#e8e8e8" />
+                  <rect x="26" y="16" width="28" height="16" rx="2" fill="#d0d0d0" />
+                  <rect x="26" y="36" width="28" height="16" rx="2" fill="#d0d0d0" />
+                  <g className="anim-dl">
+                    <path d="M40 56 L40 72 M34 66 L40 73 L46 66" stroke="#E43B37" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
                   </g>
+                  <rect x="16" y="74" width="48" height="6" rx="3" fill="#E43B37" opacity="0.2" />
+                  <rect x="16" y="74" width="32" height="6" rx="3" fill="#E43B37" opacity="0.5" />
                 </svg>
               ),
             },
             {
-              title: "Print-Ready Output",
-              desc: "4×6 and strip formats, perfectly sized for printing.",
+              title: "Live Preview",
+              desc: "See your edits update in real-time before saving the final strip.",
               icon: (
                 <svg width="90" height="90" viewBox="0 0 90 90" fill="none">
-                  <rect x="18" y="35" width="54" height="30" rx="5" fill="#d8d8d8" />
-                  <rect x="30" y="20" width="30" height="18" rx="2" fill="#e8e8e8" />
-                  <rect x="22" y="62" width="46" height="3" rx="1.5" fill="#bbb" />
-                  <circle cx="60" cy="47" r="4" fill="#E43B37" opacity="0.5" />
-                  <g className="anim-paper">
-                    <rect x="27" y="55" width="36" height="20" rx="2" fill="#f0f0f0" />
-                    <rect x="31" y="59" width="28" height="2" rx="1" fill="#ddd" />
-                    <rect x="31" y="64" width="20" height="2" rx="1" fill="#ddd" />
-                  </g>
+                  <rect x="12" y="22" width="66" height="42" rx="6" fill="#e8e8e8" />
+                  <rect x="16" y="26" width="58" height="34" rx="3" fill="#f5f5f5" />
+                  <rect x="20" y="30" width="24" height="26" rx="2" fill="#d0d0d0" />
+                  <rect x="48" y="30" width="22" height="12" rx="2" fill="#E43B37" opacity="0.3" />
+                  <rect x="48" y="46" width="22" height="10" rx="2" fill="#d0d0d0" />
+                  <rect x="30" y="68" width="30" height="6" rx="3" fill="#d0d0d0" />
+                  <circle cx="20" cy="28" r="2" fill="#E43B37" opacity="0.6" />
+                </svg>
+              ),
+            },
+            {
+              title: "Auto-Capture",
+              desc: "Shoots all frames back to back automatically, no re-clicking needed.",
+              icon: (
+                <svg width="90" height="90" viewBox="0 0 90 90" fill="none">
+                  <rect x="14" y="28" width="62" height="40" rx="8" fill="#e8e8e8" />
+                  <circle cx="45" cy="48" r="14" fill="#d0d0d0" />
+                  <circle cx="45" cy="48" r="8" fill="#E43B37" opacity="0.4" />
+                  <circle cx="45" cy="48" r="3" fill="#E43B37" opacity="0.8" />
+                  <rect x="35" y="20" width="20" height="10" rx="4" fill="#d8d8d8" />
+                  <circle cx="65" cy="35" r="4" fill="#ddd" />
+                  <path d="M20 48 Q20 36 32 34" stroke="#E43B37" strokeWidth="2" fill="none" strokeLinecap="round" strokeDasharray="3 3" opacity="0.5" />
+                  <path d="M70 48 Q70 36 58 34" stroke="#E43B37" strokeWidth="2" fill="none" strokeLinecap="round" strokeDasharray="3 3" opacity="0.5" />
                 </svg>
               ),
             },
@@ -316,7 +315,7 @@ const Landing = () => {
               <div className="h-[100px] flex items-center justify-center mb-4">
                 {icon}
               </div>
-              <p className="text-[15px] font-extrabold text-[#111] mb-2 ">{title}</p>
+              <p className="text-[15px] font-extrabold text-[#111] mb-2">{title}</p>
               <p className="text-[12px] font-semibold text-[#999] leading-relaxed">{desc}</p>
             </div>
           ))}
@@ -410,7 +409,7 @@ const MacBookMockup = () => {
               </div>
             </div>
 
-            {/* Desktop — browser + dock */}
+            {/* Desktop, browser + dock */}
             <div className="relative z-10 flex items-end justify-center h-[calc(100%-15px)] lg:h-[calc(100%-30px)]">
 
               {/* Floating browser window */}

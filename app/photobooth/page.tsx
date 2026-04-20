@@ -724,7 +724,7 @@ const Photobooth = () => {
                                     placeholder="Add a caption…"
                                     value={caption}
                                     onChange={(e) => setCaption(e.target.value)}
-                                    className="w-full bg-[#f5f5f5] rounded-[10px] px-3 py-2.5 text-sm font-semibold text-[#111] placeholder-[#bbb] outline-none focus:ring-2 focus:ring-[#E43B37]/30 transition-all"
+                                    className="w-full bg-[#f5f5f5] rounded-[10px] px-3 py-2.5 text-base font-semibold text-[#111] placeholder-[#bbb] outline-none focus:ring-2 focus:ring-[#E43B37]/30 transition-all"
                                 />
                                 <p className="text-[11px] text-[#bbb] font-semibold text-right">{caption.length}/20</p>
                             </div>
